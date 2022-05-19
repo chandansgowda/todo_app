@@ -5,11 +5,14 @@ import 'package:todo_app/services/db_service.dart';
 
 class TodoItem extends StatelessWidget {
 
+  final int index;
+  TodoItem(this.index);
+
   @override
   Widget build(BuildContext context) {
     final todoItem = Provider.of<TodoObject>(context);
     return Card(child: ListTile(
-      leading: CircleAvatar(child: Text("1"),),
+      leading: CircleAvatar(child: Text("$index"),),
       title: Text(todoItem.title),
       subtitle: Text(todoItem.description),
       trailing: IconButton(
